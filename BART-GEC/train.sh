@@ -3,9 +3,9 @@ WARMUP_UPDATES=500
 LR=3e-05
 MAX_TOKENS=4000
 UPDATE_FREQ=1
-BART_PATH=./bart.large/model.pt
+BART_PATH=bart.large.cnn/model.pt
 
-CUDA_VISIBLE_DEVICES=1 python train.py gec_data-bin \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python train.py gec_data-bin \
     --save-dir model/gec_bart \
     --log-format simple \
     --log-interval 100 \
@@ -27,5 +27,5 @@ CUDA_VISIBLE_DEVICES=1 python train.py gec_data-bin \
     --clip-norm 0.1 \
     --lr-scheduler polynomial_decay --lr $LR --total-num-update $TOTAL_NUM_UPDATES --warmup-updates $WARMUP_UPDATES \
     --skip-invalid-size-inputs-valid-test \
-    --max-epoch 10 \
+    --max-epoch 3 \
     --find-unused-parameters;

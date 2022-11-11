@@ -34,7 +34,6 @@ with open(input_text) as source, open(output_path, 'w') as fout:
                 fout.write(hypothesis + '\n')
                 fout.flush()
             slines = []
-
         slines.append(sline.strip())
         count += 1
     if slines != []:
