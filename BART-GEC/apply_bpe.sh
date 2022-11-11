@@ -5,8 +5,8 @@ do
       python -m examples.roberta.multiprocessing_bpe_encoder \
           --encoder-json encoder.json \
           --vocab-bpe vocab.bpe \
-          --inputs "/path/to/$SPLIT.$LANG" \
-          --outputs "/path/to/$SPLIT.bpe.$LANG" \
+          --inputs "data/m2/$SPLIT.$LANG" \
+          --outputs "data/bpe/$SPLIT.bpe.$LANG" \
           --workers 10 \
           --keep-empty;
     done

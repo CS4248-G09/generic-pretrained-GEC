@@ -1,10 +1,7 @@
-OUT=$1
-GPU=$2
-model=$3
+OUT=output
+model=./bart.large
 
-mkdir -p $OUT
-
-CUDA_VISIBLE_DEVICES=$GPU python translate.py \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python translate.py \
   $model \
-  /path/to/ABCN.test.bea19.orig \
-  $OUT
+  data/test/ABCN.test.bea19.orig \
+  $OUT \

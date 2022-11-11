@@ -363,8 +363,9 @@ class SequenceGenerator(object):
             # cand_bbsz_idx contains beam indices for the top candidate
             # hypotheses, with a range of values: [0, bsz*beam_size),
             # and dimensions: [bsz, cand_size]
+            cand_beams = cand_beams.to(bbsz_offsets.device)
             cand_bbsz_idx = cand_beams.add(bbsz_offsets)
-
+            
             # finalize hypotheses that end in eos, except for blacklisted ones
             # or candidates with a score of -inf
             eos_mask = cand_indices.eq(self.eos) & cand_scores.ne(-math.inf)
